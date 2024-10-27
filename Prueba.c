@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -38,7 +39,7 @@ void pedirNumero(int *numero) {
         resultado = scanf(" %d", numero);
         printf(RESET);
         if (resultado != 1) {
-            printf(RED "Entrada no válida. Por favor, ingresa un número.\n" RESET);
+            printf(RED "Entrada no valida. Por favor, ingresa un numero.\n" RESET);
             while (getchar() != '\n');
         }
     } while (resultado != 1);
@@ -52,13 +53,13 @@ void ConfirmarMatriz(int filas, int columnas, int matriz[filas][columnas]) {
         printf(GREEN "Matriz ingresada:\n" RESET);
         MostrarMatriz(filas, columnas, matriz);
 
-        printf(BLUE "¿Está bien ingresada la matriz? (1 = Sí, 2 = No): " RESET);
+        printf(BLUE "¿Esta bien ingresada la matriz? (1 = Si, 2 = No): " RESET);
         pedirNumero(&bien_ingresado);
         if (bien_ingresado == 2) {
             printf(RED "Reingrese la matriz.\n" RESET);
             RecorrerMatriz(filas, columnas, matriz);
         } else if (bien_ingresado != 1 && bien_ingresado != 2) {
-            printf(RED "Opción inválida. Por favor ingrese 1 o 2.\n" RESET);
+            printf(RED "Opcion invalida. Por favor ingrese 1 o 2.\n" RESET);
         }
     } while (bien_ingresado != 1);
 }
@@ -114,7 +115,7 @@ void binario(int num) {
         bin[i++] = num % 2;
         num /= 2;
     }
-    printf("El número en binario es: ");
+    printf(BLUE"El numero en binario es: "RESET);
     for (int j = i - 1; j >= 0; j--) {
         printf("%d", bin[j]);
     }
@@ -131,7 +132,7 @@ void octal(int num) {
         oct[i++] = num % 8;
         num /= 8;
     }
-    printf("El número en octal es: ");
+    printf(BLUE"El numero en octal es: "RESET);
     for (int j = i - 1; j >= 0; j--) {
         printf("%d", oct[j]);
     }
@@ -148,7 +149,7 @@ void hexadecimal(int num) {
         hex[i++] = num % 16;
         num /= 16;
     }
-    printf("El número en hexadecimal es: ");
+    printf(BLUE"El numero en hexadecimal es: "RESET);
     for (int j = i - 1; j >= 0; j--) {
         printf("%X", hex[j]);
     }
@@ -163,7 +164,8 @@ int binarioDecimal(int binario) {
         base *= 2;
         binario /= 10;
     }
-    printf("El número binario en decimal es: %d\n", decimal);
+    printf(BLUE"El numero binario en decimal es: "RESET);
+    printf("%d\n", decimal);
     return decimal;
 }
 
@@ -175,13 +177,15 @@ int octalDecimal(int octal) {
         base *= 8;
         octal /= 10;
     }
-    printf("El número octal en decimal es: %d\n", decimal);
+    printf(BLUE"El numero octal en decimal es: "RESET);
+    printf("%d\n",decimal);
     return decimal;
 }
 
 int hexaDecimalaDecimal(char hex[]) {
     int decimal = (int)strtol(hex, NULL, 16);
-    printf("El número hexadecimal en decimal es: %d\n", decimal);
+    printf(BLUE"El numero hexadecimal en decimal es: "RESET);
+    printf("%d\n", decimal);
     return decimal;
 }
 
@@ -205,20 +209,25 @@ int main() {
     int salirBases = 1;
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
-    printf("Bienvenido, soy una calculadora de matrices y de cambio de base.\n");
-    printf("Que funcionalidad desea usar : 1_ Calculadora de matrices 2_ Calculadora de cambio de base.\nDigite su eleccion: ");
+    printf(YELLOW"----------------------------------------\n"RESET);
+    printf(BLUE"Bienvenido, soy una calculadora de matrices y de cambio de base.\n"RESET);
+    
+    printf(BLUE"Que funcionalidad desea usar :\n 1_ Calculadora de matrices 2_ Calculadora de cambio de base.\nDigite su eleccion: \n"RESET);
+    printf(YELLOW"----------------------------------------\n"RESET);
     scanf("%d", &menu);
+    
     while(menu!= 1 && menu != 2){
         printf(RED"Valor ingresado incorrecto, volver a ingresar"RESET);
-        scanf("%d", &menu);}
-    
+            scanf("%d", &menu);
+
+    }
      if (menu == 1)
      {
         printf(BLUE "Bienvenido a la calculadora de matrices.\n" RESET);
 
     // Mostrar opciones de operaciones de matrices
     do {
-        printf(BLUE "Seleccione una operación:\n");
+        printf(BLUE "Seleccione una operacion:\n");
         printf("1_Suma de matrices\n2_Resta de matrices\n3_Multiplicacion de matrices\n4_Transpuesta de matriz\n Digite su eleccion: " RESET);
         printf(YELLOW);
         scanf("%d", &opcion);
@@ -229,9 +238,9 @@ int main() {
     } while (opcion < 1 || opcion > 4);
 
     // Pedir dimensiones de las matrices
-    printf(BLUE "Ingrese el número de filas: " RESET);
+    printf(BLUE "Ingrese el numero de filas: " RESET);
     scanf("%d", &filas);
-    printf(BLUE "Ingrese el número de columnas: " RESET);
+    printf(BLUE "Ingrese el numero de columnas: " RESET);
     scanf("%d", &columnas);
 
     int matriz_1[filas][columnas], matriz_2[filas][columnas], matriz_final[filas][columnas];
@@ -256,7 +265,7 @@ int main() {
              scanf("%d", &columnas2);
              if (columnas != filas2)
              {
-                printf("Error, las matrices solo se pueden multiplicar si la segunda matriz tiene la misma cantidad de filas que columnas la primera matriz.\n");
+                printf(RED"Error, las matrices solo se pueden multiplicar si la segunda matriz tiene la misma cantidad de filas que columnas la primera matriz.\n"RESET);
              }
              } while (columnas != filas2);
             
@@ -265,7 +274,7 @@ int main() {
             RecorrerMatriz(filas2, columnas2, matriz2);
             ConfirmarMatriz(filas2, columnas2, matriz2); // Confirmación de la segunda matriz
             multiplicarMatrices(filas, columnas, matriz_1, filas2, columnas2, matriz2, matriz_resultante);
-            printf(GREEN "Matriz resultante de la multiplicación:\n" RESET);
+            printf(GREEN "Matriz resultante de la multiplicacion:\n" RESET);
             MostrarMatriz(filas, columnas2, matriz_resultante);
             return 0;
         }
@@ -294,7 +303,7 @@ int main() {
             do {
         printf(BLUE "Bienvenido al conversor de bases.\n" RESET);
         do{
-        printf(BLUE "Qué quieres convertir\n1_Binario\n2_Octal\n3_Decimal\n4_Hexadecimal\nDigite su elección: " RESET);
+        printf(BLUE "Que quieres convertir\n1_Binario\n2_Octal\n3_Decimal\n4_Hexadecimal\nDigite su eleccion: " RESET);
         pedirNumero(&opcion);
         printf(RESET);
         if (opcion < 1 || opcion > 5)
@@ -304,7 +313,7 @@ int main() {
     } while (opcion < 1 || opcion > 5);
         
         if (opcion == 4) {
-            printf(BLUE "Ingrese el número hexadecimal: " RESET);
+            printf(BLUE "Ingrese el numero hexadecimal: " RESET);
             printf(YELLOW);
             scanf("%s", hex);
             printf(RESET);
@@ -316,7 +325,7 @@ int main() {
             printf(RESET);
 
         } else {
-            printf(BLUE "Ingrese el número: " RESET);
+            printf(BLUE "Ingrese el numero: " RESET);
             pedirNumero(&numero);
 
             printf(GREEN);
@@ -335,12 +344,12 @@ int main() {
                 octal(numero);
                 hexadecimal(numero);
             } else {
-                printf(RED "Opción no válida.\n" RESET);
+                printf(RED "Opcion no valida.\n" RESET);
             }
             printf(RESET);
         }
 
-        printf(BLUE "¿Desea salir del convertidor de bases? (0 = Sí, otro número = No): " RESET);
+        printf(BLUE "¿Desea salir del convertidor de bases? (0 = Si, otro numero = No): " RESET);
         pedirNumero(&salirBases);
 
     } while (salirBases != 0); }
