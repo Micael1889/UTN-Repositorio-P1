@@ -208,7 +208,10 @@ int main() {
     printf("Bienvenido, soy una calculadora de matrices y de cambio de base.\n");
     printf("Que funcionalidad desea usar : 1_ Calculadora de matrices 2_ Calculadora de cambio de base.\nDigite su eleccion: ");
     scanf("%d", &menu);
-
+    while(menu!= 1 && menu != 2){
+        printf(RED"Valor ingresado incorrecto, volver a ingresar"RESET);
+        scanf("%d", &menu);}
+    
      if (menu == 1)
      {
         printf(BLUE "Bienvenido a la calculadora de matrices.\n" RESET);
