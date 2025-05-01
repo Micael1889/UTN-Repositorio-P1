@@ -1,0 +1,106 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: rgba(204, 179, 179, 0.758);
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 0.2fr 1fr 1fr;
+  grid-template-rows: 0.1fr 1fr 1fr 0.1fr;
+  grid-template-areas:
+    "nav nav nav"
+    "nav-desp productos productos"
+    "nav-desp productos productos"
+    "footer footer footer";
+}
+
+header {
+  grid-area: nav;
+  margin: 0%;
+}
+
+aside {
+  grid-area: nav-desp;
+}
+
+main {
+  grid-area: productos;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+footer {
+  grid-area: footer;
+}
+a {
+  background-color: transparent;
+  color: aliceblue;
+  font-family: "Courier New", Courier, monospace;
+  font-size: x-large;
+  text-decoration: none;
+}
+
+a:hover {
+  font-size: x-large;
+}
+
+.navegador {
+  display: flex;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.iconoNavegable {
+  height: 30px;
+  background-color: #ffffff;
+}
+
+.iconoNavegable:hover {
+  height: 35px;
+  transition: 1s;
+}
+
+.bi-list {
+  margin: 0%;
+  height: 30px;
+  width: 30px;
+}
+
+.NavBar-aside-desplegable {
+  background-color: aqua;
+  width: 100%;
+}
+
+.items {
+  padding: 0%;
+  box-sizing: border-box;
+  border: black solid;
+  border-radius: 10%;
+  background-color: aquamarine;
+  align-content: center;
+}
+
+.foto-prod {
+  width: 100%;
+  height: 100%;
+  margin: 0%;
+  padding: 0%;
+  border-radius: 10%;
+}
+
+.platita {
+  background-color: aquamarine;
+}
+
+footer {
+  background-color: #1212e4;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+}

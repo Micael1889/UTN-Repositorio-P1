@@ -1,0 +1,46 @@
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+header {
+  background-color: rgb(10, 6, 1);
+}
+nav {
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: rgb(25, 220, 220);
+}
+
+button {
+  background-color: rgba(249, 249, 1, 0.955);
+  padding: 1%;
+  color: rgb(0, 0, 0);
+  font-size: medium;
+  border: green solid 3px;
+  border-radius: 20%;
+}
+
+.MenuDelDia {
+  background-color: rgb(90, 145, 145);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fotoMenu {
+  width: 350px;
+  border-radius: 5%;
+}
+
+h1 {
+  padding: 10%;
+  margin: 5%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 50px;
+}
+
+.descripcion {
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
